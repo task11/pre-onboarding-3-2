@@ -11,7 +11,6 @@ export const StyledNavLink = styled(Link)<StyledNavLinkProps>`
   color: var(--link-color, #bcbcbc);
   background-color: var(--link-bg-color, #121212);
   height: 52px;
-  font-size: 18px;
   padding-left: 16px;
   cursor: pointer;
 

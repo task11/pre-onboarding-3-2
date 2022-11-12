@@ -15,7 +15,7 @@ export const StyledNav = styled.nav`
   justify-content: center;
   align-items: center;
   color: #ffff;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export const StyledNavItem = styled.div`
@@ -27,7 +27,6 @@ export const StyledNavItem = styled.div`
   width: 100%;
   height: 52px;
   padding-left: 16px;
-  font-size: 18px;
   gap: 16px;
   cursor: pointer;
 
