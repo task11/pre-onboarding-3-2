@@ -30,10 +30,10 @@ export default function Logo() {
           gradientUnits="userSpaceOnUse"
         >
           {' '}
-          <stop className="ccompli1" stop-color="#64C2DB" />{' '}
-          <stop className="ccompli2" offset=".307" stop-color="#7476ED" />{' '}
-          <stop className="ccustom" offset=".604" stop-color="#C994DF" />{' '}
-          <stop className="ccompli1" offset="1" stop-color="#E56F8C" />{' '}
+          <stop className="ccompli1" stopColor="#64C2DB" />{' '}
+          <stop className="ccompli2" offset=".307" stopColor="#7476ED" />{' '}
+          <stop className="ccustom" offset=".604" stopColor="#C994DF" />{' '}
+          <stop className="ccompli1" offset="1" stopColor="#E56F8C" />{' '}
         </linearGradient>{' '}
       </defs>
     </svg>
