@@ -9,7 +9,7 @@ export const axios = Axios.create({
 axios.interceptors.request.use(
   (config) => {
     const newConfig = { ...config };
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('token');
 
     if (newConfig.headers) {
       if (token) {

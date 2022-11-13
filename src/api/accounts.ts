@@ -1,9 +1,11 @@
 import { axios } from '../lib/axios';
 
-// import { UserInputProps, UserResponseProps } from '../types/user';
+import { AccountsResponseProps } from '../types/accounts';
 
-export async function fetchAccounts() {
-  const { data } = await axios.post('/accounts');
+export async function fetchAccounts(page: string | string[]) {
+  const { data } = await axios.get<AccountsResponseProps>(
+    `/accounts?_page=${page}&_limit=20`,
+  );
 
   return data;
 }

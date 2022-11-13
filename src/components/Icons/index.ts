@@ -8,6 +8,8 @@ import Dot from './Dot';
 import SiderButton from './SiderButton';
 import Bell from './Bell';
 import Lock from './Lock';
+import ArrowLeft from './ArrowLeft';
+import ArrowRight from './ArrowRight';
 
 export default {
   Account,
@@ -20,4 +22,6 @@ export default {
   SiderButton,
   Bell,
   Lock,
+  ArrowLeft,
+  ArrowRight,
 };
