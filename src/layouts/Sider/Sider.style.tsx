@@ -31,7 +31,7 @@ export const StyledNavItem = styled.div`
   cursor: pointer;
 
   svg {
-    fill: #bcbcbc;
+    stroke: #bcbcbc;
   }
 
   &:hover {
@@ -39,7 +39,7 @@ export const StyledNavItem = styled.div`
     background-color: #468ff7;
 
     svg {
-      fill: white;
+      stroke: white;
     }
   }
 `;

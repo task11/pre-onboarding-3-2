@@ -9,6 +9,7 @@ const StyledAuth = styled.section`
   height: 100vh;
   min-height: 100vh;
   display: flex;
+  background-color: #e9e9e9;
 `;
 
 export default function Auth({ children }: AuthProps) {
