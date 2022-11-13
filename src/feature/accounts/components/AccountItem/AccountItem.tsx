@@ -1,7 +1,6 @@
-import { useQuery } from 'react-query';
-import { fetchUser } from '../../../../api/user';
+import useUserInfo from '../../../../utils/hooks/useUserInfo';
+
 import { AccountProps } from '../../../../types/accounts';
-import { queryKeys } from '../../../../utils/constants/queryKeys';
 
 import {
   addCommas,
@@ -19,15 +18,7 @@ interface AccountItemProps {
 }
 
 export default function AccountItem({ account }: AccountItemProps) {
-  const { data, isLoading } = useQuery(
-    [queryKeys.user, { userId: account.user_id }],
-    () => fetchUser(account.user_id),
-    {
-      keepPreviousData: true,
-      refetchOnWindowFocus: true,
-      staleTime: 60000,
-    },
-  );
+  const { data, isLoading } = useUserInfo(account.user_id);
 
   if (isLoading) {
     return (
