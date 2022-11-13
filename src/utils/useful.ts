@@ -26,3 +26,7 @@ export const maskingName = (name: string): string => {
 
   return name.replace(/(?<=.{2})./gi, '*');
 };
+
+export const checkActive = (isActive: boolean): string => {
+  return isActive ? '활성화' : '비활성화';
+};

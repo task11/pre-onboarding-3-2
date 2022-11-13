@@ -1,22 +1,22 @@
-import React from 'react';
 import { useQuery } from 'react-query';
-import styled from 'styled-components';
 import { fetchUser } from '../../../../api/user';
-import { ConvertAccountProps } from '../../../../types/accounts';
+import { AccountProps } from '../../../../types/accounts';
 import { queryKeys } from '../../../../utils/constants/queryKeys';
 
+import {
+  addCommas,
+  checkActive,
+  convertAccountState,
+  convertBroker,
+  convertDateToKr,
+  maskingName,
+} from '../../../../utils/useful';
+
+import { StyledTableRow } from './AccountItem.style';
+
 interface AccountItemProps {
-  account: ConvertAccountProps;
+  account: AccountProps;
 }
-
-const StyledTableRow = styled.tr`
-  height: 30px;
-
-  td {
-    font-size: 14px;
-    word-break: break-all;
-  }
-`;
 
 export default function AccountItem({ account }: AccountItemProps) {
   const { data, isLoading } = useQuery(
@@ -40,14 +40,14 @@ export default function AccountItem({ account }: AccountItemProps) {
   return (
     <StyledTableRow>
       <td>{data?.name}</td>
-      <td>{account.broker}</td>
-      <td>{account.number}</td>
-      <td>{account.status}</td>
+      <td>{convertBroker(account.broker_id)}</td>
+      <td>{maskingName(account.number)}</td>
+      <td>{convertAccountState(account.status)}</td>
       <td>{account.name}</td>
-      <td>{account.assets}</td>
-      <td>{account.payments}</td>
-      <td>{account.is_active ? '활성화' : '비활성화'}</td>
-      <td>{account.created_at}</td>
+      <td>{addCommas(account.assets)}</td>
+      <td>{addCommas(account.payments)}</td>
+      <td>{checkActive(account.is_active)}</td>
+      <td>{convertDateToKr(account.created_at)}</td>
     </StyledTableRow>
   );
 }

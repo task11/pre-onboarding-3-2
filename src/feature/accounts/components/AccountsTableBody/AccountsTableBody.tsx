@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ConvertAccountListProps } from '../../../../types/accounts';
+import { AccountsResponseProps } from '../../../../types/accounts';
 import AccountItem from '../AccountItem/AccountItem';
 
 interface AccountsTableBodyProps {
-  accounts: ConvertAccountListProps;
+  accounts: AccountsResponseProps;
 }
 
 const StyledNoData = styled.td`
