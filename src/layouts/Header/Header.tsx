@@ -6,14 +6,14 @@ import {
 
 import Avatar from '../../components/Avatar/Avatar';
 import Icons from '../../components/Icons';
+import useUser from '../../utils/hooks/useUser';
 
 interface HeaderProps {
   title: string;
 }
 
 export default function Header({ title }: HeaderProps) {
-  const userProfile = '';
-
+  const { user } = useUser();
   return (
     <StyledHeader>
       <StyledHeaderItems>
@@ -33,7 +33,8 @@ export default function Header({ title }: HeaderProps) {
         <StyledIconWrapper>
           <Icons.Bell />
         </StyledIconWrapper>
-        <Avatar src={userProfile} />
+        <span>{user?.name}</span>
+        <Avatar src="" />
       </StyledHeaderItems>
     </StyledHeader>
   );

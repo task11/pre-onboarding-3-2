@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router';
+import { useQueryClient } from 'react-query';
+
 import { IsActiveProps } from '../../types/navLink';
 import { path } from '../../utils/constants/common';
 
@@ -14,8 +16,15 @@ import NavLink from '../../components/NavLink/NavLink';
 
 export default function Sider() {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const isActive = (pathname: string): IsActiveProps => {
     return router.pathname === pathname ? 'active' : 'default';
+  };
+
+  const onLogout = () => {
+    if (!window.confirm('정말 로그아웃 하시겠습니까?')) return;
+    queryClient.clear();
+    router.push(path.auth);
   };
 
   return (
@@ -36,7 +45,7 @@ export default function Sider() {
           <Icons.User />
           사용자
         </NavLink>
-        <StyledNavItem>
+        <StyledNavItem onClick={onLogout}>
           <Icons.Logout />
           로그아웃
         </StyledNavItem>

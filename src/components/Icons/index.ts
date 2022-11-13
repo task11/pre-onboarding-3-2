@@ -7,6 +7,7 @@ import Question from './Question';
 import Dot from './Dot';
 import SiderButton from './SiderButton';
 import Bell from './Bell';
+import Lock from './Lock';
 
 export default {
   Account,
@@ -18,4 +19,5 @@ export default {
   Dot,
   SiderButton,
   Bell,
+  Lock,
 };
