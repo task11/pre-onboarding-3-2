@@ -1,6 +1,6 @@
 export const path = {
   auth: '/auth',
   dashboard: '/dashboard',
-  accounts: '/accounts',
+  accounts: '/account',
   user: '/user',
 } as const;
