@@ -1,9 +1,5 @@
 import Axios from 'axios';
-import { QueryClient } from 'react-query';
-import { UserResponseProps } from '../types/user';
-import { queryKeys } from '../utils/constants/queryKeys';
 
-const queryClient = new QueryClient();
 const API_URL = 'http://localhost:3000';
 
 export const axios = Axios.create({
@@ -13,11 +9,11 @@ export const axios = Axios.create({
 axios.interceptors.request.use(
   (config) => {
     const newConfig = { ...config };
-    const data = queryClient.getQueryData<UserResponseProps>(queryKeys.user);
+    const token = localStorage.getItem('token');
 
     if (newConfig.headers) {
-      if (data?.accessToken) {
-        newConfig.headers.Authorization = `Bearer ${data?.accessToken}`;
+      if (token) {
+        newConfig.headers.Authorization = `Bearer ${token}`;
       }
 
       newConfig.headers['Content-Type'] = 'application/json';
