@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "postinstall": "husky install",
-    "format": "prettier . --write",
-    "lint:fix": "next lint --fix src/**/*.ts{,x}",
+    "format": "prettier src/**/*.ts{,x} --write ",
+    "lint:fix": "next lint --fix",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

@@ -52,5 +52,6 @@ module.exports = {
       { labelAttributes: ['htmlFor'] },
     ],
     'react/jsx-props-no-spreading': 'off',
+    'import/no-anonymous-default-export': 'off',
   },
 };
