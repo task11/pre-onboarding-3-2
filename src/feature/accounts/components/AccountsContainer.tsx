@@ -11,7 +11,8 @@ import AccountsTableBody from './AccountsTableBody/AccountsTableBody';
 import AccountsTableHeader from './AccountsTableHeader/AccountsTableHeader';
 
 export default function AccountsContainer() {
-  const { data, isLoading, handlePageNext, handlePagePrev } = useAccounts();
+  const { data, page, isLoading, handlePageNext, handlePagePrev } =
+    useAccounts();
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -23,6 +24,7 @@ export default function AccountsContainer() {
         <AccountsPagenation
           handlePageNext={handlePageNext}
           handlePagePrev={handlePagePrev}
+          page={page}
         />
         <AccountsTable>
           <AccountsTableHeader />

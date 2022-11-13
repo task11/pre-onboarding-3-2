@@ -27,5 +27,5 @@ export default function useAccounts() {
     if (Number.isNaN(Number(page)) || page === '1') return;
     router.push(`/account?page=${Number(page) + -1}`);
   };
-  return { data, isLoading, handlePageNext, handlePagePrev };
+  return { data, isLoading, handlePageNext, handlePagePrev, page };
 }
