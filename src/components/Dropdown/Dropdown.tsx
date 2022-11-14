@@ -1,11 +1,13 @@
-import React, { forwardRef } from 'react';
-import Icons from '../Icons';
+import useDropdown from '../../utils/hooks/useDropdown';
+
 import {
   StyledButton,
   StyledDropdown,
   StyledNav,
   StyledSeletButton,
 } from './Dropdown.style';
+
+import Icons from '../Icons';
 
 type Item = {
   id: number;
@@ -14,28 +16,27 @@ type Item = {
 
 interface DropdownProps {
   items: Array<Item>;
-  value: string;
-  isToggle: boolean;
-  handleToggle: () => void;
-  handleValue: (value: string) => void;
 }
 
-export default forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
-  { items, isToggle, value, handleToggle, handleValue },
-  ref,
-) {
+export default function Dropdown({ items }: DropdownProps) {
+  const { dropdownRef, isToggle, selectedValue, handleToggle, onSelectValue } =
+    useDropdown(items[0].title);
+
   return (
-    <StyledDropdown>
+    <StyledDropdown className="dropdown-container">
       <StyledButton onClick={handleToggle}>
-        <span>{value}</span>
+        <span>{selectedValue}</span>
         <Icons.ArrowDown />
       </StyledButton>
       {isToggle && (
-        <StyledNav ref={ref}>
+        <StyledNav ref={dropdownRef}>
           <ul>
             {items.map(({ id, title }) => (
               <li key={id}>
-                <StyledSeletButton onClick={() => handleValue(title)}>
+                <StyledSeletButton
+                  onClick={() => onSelectValue(title)}
+                  disabled={selectedValue === title}
+                >
                   {title}
                 </StyledSeletButton>
               </li>
@@ -45,4 +46,4 @@ export default forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
       )}
     </StyledDropdown>
   );
-});
+}

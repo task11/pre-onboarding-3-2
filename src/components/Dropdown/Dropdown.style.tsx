@@ -19,7 +19,7 @@ export const StyledButton = styled.button`
   justify-content: space-around;
 `;
 
-export const StyledNav = styled.nav`
+export const StyledNav = styled.div`
   width: 100%;
   position: absolute;
   top: 35px;
@@ -41,4 +41,8 @@ export const StyledSeletButton = styled.button`
   width: 100%;
   text-align: center;
   cursor: pointer;
+
+  &:disabled {
+    cursor: initial;
+  }
 `;

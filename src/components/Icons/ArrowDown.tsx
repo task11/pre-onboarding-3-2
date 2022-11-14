@@ -1,7 +1,7 @@
 export default function ArrowDown() {
   return (
     <svg
-      enable-background="new 0 0 32 32"
+      enableBackground="new 0 0 32 32"
       height="24px"
       id="svg2"
       version="1.1"
