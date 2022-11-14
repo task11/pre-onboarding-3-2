@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
+import filterSlice from './filter';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  filter: filterSlice,
+});
 
 const store = configureStore({
   reducer: rootReducer,

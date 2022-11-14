@@ -54,5 +54,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'import/no-anonymous-default-export': 'off',
     'react/require-default-props': 'off',
+    'no-extra-boolean-cast': 'off',
   },
 };

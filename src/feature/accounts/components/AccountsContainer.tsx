@@ -18,6 +18,7 @@ export default function AccountsContainer() {
     data,
     isLoading,
     page,
+    filters,
     searchQuery,
     handleInputChange,
     submitSearch,
@@ -32,7 +33,7 @@ export default function AccountsContainer() {
   return (
     <StyledAccountsContainer>
       <StyledFiltersWrapper>
-        <AccountDropdown />
+        <AccountDropdown filters={filters} />
         <AccountSearch
           value={searchQuery}
           handleChange={handleInputChange}

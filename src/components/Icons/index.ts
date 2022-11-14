@@ -10,6 +10,7 @@ import Bell from './Bell';
 import Lock from './Lock';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
+import ArrowDown from './ArrowDown';
 
 export default {
   Account,
@@ -24,4 +25,5 @@ export default {
   Lock,
   ArrowLeft,
   ArrowRight,
+  ArrowDown,
 };
