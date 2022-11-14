@@ -11,5 +11,13 @@ export const StyledAccountsContainer = styled.div`
 `;
 
 export const StyledTableWrapper = styled.div`
-  width: 95%;
+  width: 100%;
+`;
+
+export const StyledFiltersWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;

@@ -11,7 +11,7 @@ import {
   maskingName,
 } from '../../../../utils/useful';
 
-import { StyledTableRow } from './AccountItem.style';
+import { NavLink, StyledTableRow } from './AccountItem.style';
 
 interface AccountItemProps {
   account: AccountProps;
@@ -30,7 +30,9 @@ export default function AccountItem({ account }: AccountItemProps) {
 
   return (
     <StyledTableRow>
-      <td>{data?.name}</td>
+      <td>
+        <NavLink href={`/user/${account.user_id}`}>{data?.name}</NavLink>
+      </td>
       <td>{convertBroker(account.broker_id)}</td>
       <td>{maskingName(account.number)}</td>
       <td>{convertAccountState(account.status)}</td>
