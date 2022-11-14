@@ -6,7 +6,7 @@ export const StyledTable = styled.table`
   border: 1px solid #e9e9e9;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  table-layout: auto;
+  table-layout: fixed;
   position: relative;
 
   td {
