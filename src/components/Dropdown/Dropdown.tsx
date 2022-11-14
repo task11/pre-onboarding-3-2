@@ -1,16 +1,48 @@
 import React, { forwardRef } from 'react';
-import { StyledDropdown } from './Dropdown.style';
+import Icons from '../Icons';
+import {
+  StyledButton,
+  StyledDropdown,
+  StyledNav,
+  StyledSeletButton,
+} from './Dropdown.style';
+
+type Item = {
+  id: number;
+  title: string;
+};
 
 interface DropdownProps {
-  items?: Array<string>;
-  children: React.ReactNode;
+  items: Array<Item>;
+  value: string;
+  isToggle: boolean;
+  handleToggle: () => void;
+  handleValue: (value: string) => void;
 }
 
 export default forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
-  { children, items },
+  { items, isToggle, value, handleToggle, handleValue },
   ref,
 ) {
-  console.log(items);
-
-  return <StyledDropdown ref={ref}>{children}</StyledDropdown>;
+  return (
+    <StyledDropdown>
+      <StyledButton onClick={handleToggle}>
+        <span>{value}</span>
+        <Icons.ArrowDown />
+      </StyledButton>
+      {isToggle && (
+        <StyledNav ref={ref}>
+          <ul>
+            {items.map(({ id, title }) => (
+              <li key={id}>
+                <StyledSeletButton onClick={() => handleValue(title)}>
+                  {title}
+                </StyledSeletButton>
+              </li>
+            ))}
+          </ul>
+        </StyledNav>
+      )}
+    </StyledDropdown>
+  );
 });
