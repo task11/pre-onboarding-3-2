@@ -31,7 +31,7 @@ export default function useDropdown(initialValue: string) {
     return () => {
       window.removeEventListener('click', pageClickEvent);
     };
-  }, [dropdownRef.current, isToggle]);
+  }, [isToggle]);
 
   return { dropdownRef, isToggle, selectedValue, handleToggle, onSelectValue };
 }
