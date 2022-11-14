@@ -8,6 +8,7 @@ import {
 } from './Dropdown.style';
 
 import Icons from '../Icons';
+import { FilterItem } from '../../types/filter';
 
 type Item = {
   id: number;
@@ -15,12 +16,19 @@ type Item = {
 };
 
 interface DropdownProps {
-  items: Array<Item>;
+  list: Array<Item>;
+  filter: FilterItem;
+  dispatcher: (filter: FilterItem) => void;
 }
 
-export default function Dropdown({ items }: DropdownProps) {
+export default function Dropdown({ list, filter, dispatcher }: DropdownProps) {
   const { dropdownRef, isToggle, selectedValue, handleToggle, onSelectValue } =
-    useDropdown(items[0].title);
+    useDropdown(filter.title);
+
+  const handleFilterState = ({ id, title }: Item) => {
+    onSelectValue(title);
+    dispatcher({ id, title });
+  };
 
   return (
     <StyledDropdown className="dropdown-container">
@@ -31,10 +39,10 @@ export default function Dropdown({ items }: DropdownProps) {
       {isToggle && (
         <StyledNav ref={dropdownRef}>
           <ul>
-            {items.map(({ id, title }) => (
+            {list.map(({ id, title }) => (
               <li key={id}>
                 <StyledSeletButton
-                  onClick={() => onSelectValue(title)}
+                  onClick={() => handleFilterState({ id, title })}
                   disabled={selectedValue === title}
                 >
                   {title}
