@@ -4,7 +4,7 @@ import { queryKeys } from '../constants/queryKeys';
 
 export default function useUser() {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<UserResponseProps>(queryKeys.user);
+  const data = queryClient.getQueryData<UserResponseProps>(queryKeys.me);
 
   return { accessToken: data?.accessToken, user: data?.user };
 }

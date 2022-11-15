@@ -15,7 +15,7 @@ export default function useLogin(userInput: UserInputProps) {
 
   const getUser = async () => {
     const data = await requestLogin(userInput);
-    queryClient.setQueryData(queryKeys.user, data);
+    queryClient.setQueryData(queryKeys.me, data);
     localStorage.setItem('token', data.accessToken);
     router.push(path.accounts);
   };

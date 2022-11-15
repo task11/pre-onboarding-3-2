@@ -1,4 +1,6 @@
-import Main from '../src/layouts/Main/Main';
+import Main from '../../src/layouts/Main/Main';
+
+import UserContainer from '../../src/feature/user/components/UserContainer';
 
 interface UserPorps {
   user: {
@@ -28,7 +30,7 @@ export function getServerSideProps() {
 export default function User({ user }: UserPorps) {
   return (
     <Main title={`${user.name}님의 계좌목록`}>
-      <div>user</div>
+      <UserContainer />
     </Main>
   );
 }

@@ -14,6 +14,7 @@ interface HeaderProps {
 
 export default function Header({ title }: HeaderProps) {
   const { user } = useUser();
+
   return (
     <StyledHeader>
       <StyledHeaderItems>
