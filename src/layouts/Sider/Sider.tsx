@@ -13,12 +13,10 @@ import {
 
 import Icons from '../../components/Icons';
 import NavLink from '../../components/NavLink/NavLink';
-import useUser from '../../utils/hooks/useUser';
 
 export default function Sider() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { user } = useUser();
 
   const isActive = (pathname: string): IsActiveProps => {
     return router.pathname === pathname ? 'active' : 'default';
@@ -45,7 +43,7 @@ export default function Sider() {
           <Icons.Account />
           계좌 목록
         </NavLink>
-        <NavLink to={`${path.user}/${user?.id}`} isActive={isActive(path.user)}>
+        <NavLink to={path.users} isActive={isActive(path.users)}>
           <Icons.User />
           사용자
         </NavLink>
