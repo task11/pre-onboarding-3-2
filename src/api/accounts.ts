@@ -23,9 +23,9 @@ export async function fetchAccounts(
   return data;
 }
 
-export async function searchAccounts(query: string) {
+export async function fetchUserAccount(userId: string | string[]) {
   const { data } = await axios.get<AccountsResponseProps>(
-    `/accounts?q=${query}&_page=1&_limit=20`,
+    `/accounts?user_id=${userId}`,
   );
 
   return data;
