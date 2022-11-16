@@ -18,7 +18,7 @@ interface AccountItemProps {
 }
 
 export default function AccountItem({ account }: AccountItemProps) {
-  const { data, isLoading } = useUserInfo(account.user_id);
+  const { data, isLoading } = useUserInfo(account.user_id.toString());
 
   if (isLoading) {
     return (
