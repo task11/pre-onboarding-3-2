@@ -6,8 +6,9 @@ interface ContentProps {
 
 const StyledContent = styled.section`
   width: 100%;
-  height: calc(100% - 112px);
+  height: calc(100vh - 112px);
   background-color: #e9e9e9;
+  overflow-y: auto;
 `;
 
 export default function Content({ children }: ContentProps) {

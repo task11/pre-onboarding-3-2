@@ -12,8 +12,14 @@ export async function requestLogin(body: UserInputProps) {
   return data;
 }
 
-export async function fetchUser(userId: number) {
+export async function fetchUser(userId: string | string[]) {
   const { data } = await axios.get<UserFetchResponseProps>(`/users/${userId}`);
+
+  return data;
+}
+
+export async function fetchUserSetting(uuid: string) {
+  const { data } = await axios.get(`/userSetting?uuid=${uuid}`);
 
   return data;
 }

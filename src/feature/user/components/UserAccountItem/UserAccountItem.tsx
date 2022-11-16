@@ -1,7 +1,4 @@
-import useUserInfo from '../../../../utils/hooks/useUserInfo';
-
 import { AccountProps } from '../../../../types/accounts';
-
 import {
   addCommas,
   checkActive,
@@ -11,28 +8,13 @@ import {
   maskingName,
 } from '../../../../utils/useful';
 
-import { NavLink, StyledTableRow } from './AccountItem.style';
-
-interface AccountItemProps {
+interface UserAccountItemProps {
   account: AccountProps;
 }
 
-export default function AccountItem({ account }: AccountItemProps) {
-  const { data, isLoading } = useUserInfo(account.user_id.toString());
-
-  if (isLoading) {
-    return (
-      <StyledTableRow>
-        <td>로딩중..</td>
-      </StyledTableRow>
-    );
-  }
-
+export default function UserAccountItem({ account }: UserAccountItemProps) {
   return (
-    <StyledTableRow>
-      <td>
-        <NavLink href={`/user/${account.user_id}`}>{data?.name}</NavLink>
-      </td>
+    <tr>
       <td>{convertBroker(account.broker_id)}</td>
       <td>{maskingName(account.number)}</td>
       <td>{convertAccountState(account.status)}</td>
@@ -41,6 +23,6 @@ export default function AccountItem({ account }: AccountItemProps) {
       <td>{addCommas(account.payments)}</td>
       <td>{checkActive(account.is_active)}</td>
       <td>{convertDateToKr(account.created_at)}</td>
-    </StyledTableRow>
+    </tr>
   );
 }

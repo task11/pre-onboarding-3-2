@@ -1,5 +1,5 @@
 export const brokerList = [
-  { id: 0, title: '선택' },
+  { id: 0, title: '전체' },
   { id: 209, title: '유안타증권' },
   { id: 218, title: '현대증권' },
   { id: 230, title: '미래에셋증권' },
@@ -28,7 +28,7 @@ export const brokerList = [
 ];
 
 export const accountStateList = [
-  { id: 0, title: '선택' },
+  { id: 0, title: '전체' },
   { id: 9999, title: '관리자확인필요' },
   { id: 1, title: '입금대기' },
   { id: 2, title: '운용중' },
@@ -37,7 +37,7 @@ export const accountStateList = [
 ];
 
 export const accountActiveStateList = [
-  { id: 0, title: '선택' },
+  { id: 0, title: '전체' },
   { id: 1, title: '활성화' },
   { id: 2, title: '비활성화' },
 ];

@@ -6,18 +6,32 @@ export interface UserResponseProps {
 export interface UserFetchResponseProps {
   address: string;
   age: number;
-  birth_date: Date;
-  created_at: Date;
+  birth_date: string;
+  created_at: string;
   detail_address: string;
   email: string;
   gender_origin: GenderOriginProps;
   id: number;
-  last_login: Date;
+  last_login: string;
   name: string;
   phone_number: string;
   photo: string;
-  updated_at: Date;
+  updated_at: string;
   uuid: string;
+}
+
+export interface UserInfoProps {
+  address: string;
+  age: number;
+  birth_date: string;
+  created_at: string;
+  detail_address: string;
+  email: string;
+  gender_origin: GenderOriginProps;
+  id: number;
+  last_login: string;
+  name: string;
+  phone_number: string;
 }
 
 export interface UserInputProps {
@@ -25,7 +39,7 @@ export interface UserInputProps {
   password: string;
 }
 
-type GenderOriginProps = 1 | 2;
+type GenderOriginProps = 1 | 2 | 3;
 
 interface UserProps {
   id: number;
