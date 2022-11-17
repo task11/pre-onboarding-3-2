@@ -63,7 +63,7 @@ export default function UserInfoTable({ user }: UserInfoTableProps) {
           </tr>
           <tr>
             <th>혜택 정보 수신</th>
-            <td>data</td>
+            <td>동의 </td>
             <th>가입 경로</th>
             <td>data</td>
             <th>가입 시각</th>
