@@ -16,7 +16,6 @@ export default function UserContainer({ userId }: UserContainerProps) {
   if (isLoading) {
     <div>loading</div>;
   }
-  console.log(userSetting);
 
   return (
     <Main title={`${user?.name} 님의 계좌목록`}>
