@@ -46,3 +46,16 @@ interface UserProps {
   email: string;
   name: string;
 }
+
+export type UserSettingListProps = Array<UserSettingProps>;
+
+export interface UserSettingProps {
+  allow_invest_push: boolean;
+  allow_marketing_push: boolean;
+  created_at: string;
+  id: number;
+  is_active: boolean;
+  is_staff: boolean;
+  updated_at: string;
+  uuid: string;
+}

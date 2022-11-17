@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { UserFetchResponseProps } from '../../../../types/user';
+import {
+  UserFetchResponseProps,
+  UserSettingListProps,
+} from '../../../../types/user';
 import { convertDateToKr } from '../../../../utils/useful';
 
 const StyledUserInfoTable = styled.table`
@@ -33,12 +36,17 @@ const StyledWrapper = styled.div`
 
 interface UserInfoTableProps {
   user: UserFetchResponseProps | null;
+  userSetting: UserSettingListProps;
 }
 
-export default function UserInfoTable({ user }: UserInfoTableProps) {
+export default function UserInfoTable({
+  user,
+  userSetting,
+}: UserInfoTableProps) {
   if (!user) {
     return <div>loading</div>;
   }
+  const [setting] = userSetting;
   return (
     <StyledWrapper>
       <StyledUserInfoTable border={1}>
@@ -63,11 +71,11 @@ export default function UserInfoTable({ user }: UserInfoTableProps) {
           </tr>
           <tr>
             <th>혜택 정보 수신</th>
-            <td>동의 </td>
+            <td>{setting.allow_marketing_push ? '동의' : '비동의'} </td>
             <th>가입 경로</th>
-            <td>data</td>
+            <td>몰라요</td>
             <th>가입 시각</th>
-            <td>data</td>
+            <td>{setting.created_at}</td>
           </tr>
         </tbody>
       </StyledUserInfoTable>
