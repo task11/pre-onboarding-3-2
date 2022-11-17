@@ -1,4 +1,4 @@
-import useUserInfo from '../../../../utils/hooks/useUserInfo';
+import useUserInfo from '../../../../utils/hooks/useUserSetting';
 
 import { AccountProps } from '../../../../types/accounts';
 
