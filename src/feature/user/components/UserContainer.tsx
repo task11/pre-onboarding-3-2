@@ -11,17 +11,18 @@ interface UserContainerProps {
 }
 
 export default function UserContainer({ userId }: UserContainerProps) {
-  const { user, accounts, isLoading } = useUserInfo({ userId });
+  const { user, accounts, userSetting, isLoading } = useUserInfo({ userId });
 
   if (isLoading) {
     <div>loading</div>;
   }
+  console.log(userSetting);
 
   return (
     <Main title={`${user?.name} 님의 계좌목록`}>
       <StyledUserContainer>
         <StyledUserHeader>사용자 정보</StyledUserHeader>
-        <UserInfoTable user={user} />
+        <UserInfoTable user={user} userSetting={userSetting} />
         <StyledUserHeader>사용자 계좌목록</StyledUserHeader>
         <UserAccountTable accounts={accounts} />
       </StyledUserContainer>

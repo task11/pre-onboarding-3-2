@@ -1,6 +1,6 @@
-import { useQueries } from 'react-query';
+import { useQueries, useQuery } from 'react-query';
 import { fetchUserAccount } from '../../../api/accounts';
-import { fetchUser } from '../../../api/user';
+import { fetchUser, fetchUserSetting } from '../../../api/user';
 import { queryKeys } from '../../../utils/constants/queryKeys';
 
 interface UseUserInfoProps {
@@ -21,7 +21,12 @@ export default function useUserInfo({ userId }: UseUserInfoProps) {
       queryFn: () => fetchUserAccount(userId),
     },
   ]);
+  const { data: userSetting } = useQuery(
+    [queryKeys.userSetting, { uuid: user?.uuid }],
+    () => fetchUserSetting(user?.uuid as string),
+  );
+
   const isLoading = isUserLoading || isAccountsLoading;
 
-  return { user, accounts, isLoading };
+  return { isLoading, user, accounts, userSetting };
 }
